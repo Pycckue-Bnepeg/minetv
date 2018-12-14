@@ -1,3 +1,4 @@
+mod addresses;
 mod eye;
 mod game_api;
 mod hooks;

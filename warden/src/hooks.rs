@@ -1,3 +1,4 @@
+use crate::addresses::functions;
 use crate::eye::Eye;
 use detour::GenericDetour;
 
@@ -40,12 +41,12 @@ struct Hooks {
 impl Hooks {
     fn new() -> Hooks {
         Hooks {
-            win_proc: hook!(WinProc, 0x01001BC9, win_proc),
-            game_start: hook!(GameStart, 0x0100367A, game_start),
-            game_over: hook!(GameOver, 0x0100347C, game_over),
-            push_box_up: hook!(PushBoxUp, 0x010031A0, push_box_up),
-            push_box_down: hook!(PushBoxDown, 0x0100316B, push_box_down),
-            display_cell: hook!(DisplayCell, 0x01002646, display_cell),
+            win_proc: hook!(WinProc, functions::WIN_PROC, win_proc),
+            game_start: hook!(GameStart, functions::GAME_START, game_start),
+            game_over: hook!(GameOver, functions::GAME_OVER, game_over),
+            push_box_up: hook!(PushBoxUp, functions::PUSH_BOX_UP, push_box_up),
+            push_box_down: hook!(PushBoxDown, functions::PUSH_BOX_DOWN, push_box_down),
+            display_cell: hook!(DisplayCell, functions::DISPLAY_CELL, display_cell),
         }
     }
 }
